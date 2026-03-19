@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bouton — Réserver un audit</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+    }
+
+    .btn-liquid {
+      font-family: 'DM Mono', monospace;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #fff;
+      background: #1a1a2e;
+      border: none;
+      width: 280px;
+      height: 58px;
+      padding: 0;
+      border-radius: 8px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .btn-liquid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: conic-gradient(from 0deg, #BF00FF, #e066ff, #9900cc, #BF00FF);
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      animation: spin 3s linear infinite;
+    }
+
+    .btn-liquid::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      background: #1a1a2e;
+      border-radius: 6px;
+    }
+
+    .btn-liquid:hover::before { opacity: 1; }
+    .btn-liquid:hover { transform: scale(1.05); }
+    .btn-liquid:active { transform: scale(0.97); }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .btn-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 100%;
+    }
+
+    .btn-content svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .btn-liquid:hover .btn-content svg {
+      transform: translateX(4px);
+    }
+  </style>
+</head>
+<body>
+  <button class="btn-liquid" onclick="window.open('TON_LIEN', '_blank')">
+    <span class="btn-content">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Réserver un audit
+    </span>
+  </button>
+</body>
+</html>
